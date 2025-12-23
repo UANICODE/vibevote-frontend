@@ -1,5 +1,5 @@
 // types/auth.ts
-export type UserRole = 'CONCORRENTE' | 'ENTIDADE';;
+export type UserRole = 'CONCORRENTE' | 'ENTIDADE' | 'ADMIN';
 
 export interface AuthUser {
   uid: string;
