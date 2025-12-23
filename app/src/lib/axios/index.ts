@@ -9,7 +9,7 @@ class ApiClient {
   static getInstance(): AxiosInstance {
     if (!ApiClient.instance) {
       ApiClient.instance = axios.create({
-        baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000',
+        baseURL: process.env.NEXT_PUBLIC_API_URL || 'https://vibevote.uanicode.com',
         timeout: 15000,
         headers: { 'Content-Type': 'application/json' },
         withCredentials: true,

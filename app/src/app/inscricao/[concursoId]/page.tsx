@@ -63,7 +63,8 @@ export default function InscricaoPage() {
     // Validar arquivo
     const validation = validateImageFile(file);
     if (!validation.valid) {
-      setUploadError(validation.message);
+  setUploadError(validation.message ?? null);
+
       return;
     }
 
