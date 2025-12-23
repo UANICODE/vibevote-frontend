@@ -30,23 +30,15 @@ export function ConcursoCard({ concurso, onConcursoAberto, onClick }: ConcursoCa
     }
   };
 
-  const formatDate = (dateArray: number[]) => {
-    try {
-      const [
-        year,
-        month,
-        day,
-        hour = 0,
-        minute = 0,
-        second = 0,
-      ] = dateArray;
+  const formatDate = (dateInput: string | Date) => {
+  try {
+    const date = typeof dateInput === 'string' ? new Date(dateInput) : dateInput;
+    return format(date, "dd 'de' MMM 'de' yyyy • HH:mm", { locale: ptBR });
+  } catch {
+    return '-';
+  }
+};
 
-      const date = new Date(year, month - 1, day, hour, minute, second);
-      return format(date, "dd 'de' MMM 'de' yyyy • HH:mm", { locale: ptBR });
-    } catch {
-      return '-';
-    }
-  };
 
   const handleAbrirInscricoes = async (e: React.MouseEvent) => {
     e.stopPropagation();
